@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Iniciar Sesión - NovaTech</title>
+<link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+ </a>
+    <div class="login-container" >
+        <a href="catalogos.html" class="back-arrow">
+           <img src="SVG/atras.svg" alt="Volver">
+        </a>
+        <h2>Iniciar Sesión</h2>
+        <form id="formLogin">
+            <input type="email" name="correo" placeholder="Correo electrónico" required />
+            <input type="password" name="password" placeholder="Contraseña" required />
+            <input type="submit" value="Entrar" />
+        </form>
+        <a href="#" id="openRegister">Crear una cuenta</a>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span id="closeRegister" class="close">×</span>
+            <h2>Registro de Usuario</h2>
+            <form id="formRegistro" action="#">
+                <input type="text" placeholder="Nombre completo" required />
+                <input type="email" placeholder="Correo electrónico" required />
+                <input type="tel" placeholder="Número de celular" pattern="[0-9]+" required />
+                <input type="password" placeholder="Crear contraseña" required />
+                <input type="password" placeholder="Confirmar contraseña" required />
+                <input type="submit" value="Registrarse" />
+            </form>
+        </div>
+    </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const openRegister = document.getElementById("openRegister");
+  const closeRegister = document.getElementById("closeRegister");
+  const modal = document.getElementById("registerModal");
+  const formRegistro = document.getElementById("formRegistro");
+
+  openRegister.addEventListener("click", (e) => {
+    e.preventDefault();  // Evitar que el enlace navegue a #
+    modal.style.display = "block";
+  });
+
+  closeRegister.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  formRegistro.addEventListener("submit", (e) => {
+    e.preventDefault();  // Evitar recarga
+
+    alert("Usuario registrado con éxito");
+    modal.style.display = "none";
+
+    // Redirigir a la página principal (index.html)
+    window.location.href = "index.html";
+  });
+});
+</script>
+</body>
+</html>
