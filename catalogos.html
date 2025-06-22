@@ -1,89 +1,175 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Celulares - NovaTech</title>
-    <link rel="stylesheet" href="css/catalogos.css">
-     <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Catálogo de Celulares</h1>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="#">Celulares</a>
-            <a href="#">Repuestos</a>
-            <a href="#">Soporte Técnico</a>
-            <a href="#">Contacto</a>
-            <a href="login.html">LOGIN</a>
-        </nav>
-    </header>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Catálogo de Celulares - NovaTech</title>
+        <link rel="stylesheet" href="css/catalogos.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/carrito.css">
+        <script src="js/clasesCarrito.js"></script>
+        <script src="js/carrito.js" defer></script>
+        
+    </head>
+    <body>
+        <header>
+            <!-- Carrito de compras -->
+    <div id="carrito-container">
+        <button id="carrito-btn">🛒 Carrito (<span id="carrito-contador">0</span>)</button>
 
-    <main>
-        <section>
-            <h2>Modelos Disponibles</h2>
-            <div class="catalogo">
-                <!-- Producto 1 -->
-                <div class="producto">
-                    <img src="img/iphone16.jpg" alt="iPhone 16 Pro Max">
-                    <h3>iPhone 16 Pro Max</h3>
-                    <p>Precio: S/ 5,999</p>
-                    <a href="#">Ver más</a>
-                </div>
+        <div id="carrito-detalle" class="oculto">
+            <h4>🛒 Carrito de compras</h4>
+            <ul id="carrito-lista"></ul>
+            <p><strong>Total de productos:</strong> <span id="carrito-cantidad">0</span></p>
+            <p><strong>Descuento de 10% por 3 compras a mas</strong> <span id="carrito-descuento">0</span></p>
+            <p><strong>Total a pagar:</strong> S/ <span id="carrito-total">0.00</span></p>
 
-                <!-- Producto 2 -->
-                <div class="producto">
-                    <img src="img/s24.jpg" alt="Samsung Galaxy S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p>Precio: S/ 4,499</p>
-                    <a href="#">Ver más</a>
-                </div>
-
-                <!-- Producto 3 -->
-                <div class="producto">
-                    <img src="img/huawei.jpg" alt="Huawei P60 Pro">
-                    <h3>Huawei P60 Pro</h3>
-                    <p>Precio: S/ 3,899</p>
-                    <a href="#">Ver más</a>
-                </div>
-
-                <!-- Puedes añadir más productos aquí -->
-                 <div class="producto">
-                    <img src="img/huawei.jpg" alt="Huawei P60 Pro">
-                    <h3>Huawei P60 Pro</h3>
-                    <p>Precio: S/ 3,899</p>
-                    <a href="#">Ver más</a>
-                </div>
-                <div class="producto">
-                    <img src="img/huawei.jpg" alt="Huawei P60 Pro">
-                    <h3>Huawei P60 Pro</h3>
-                    <p>Precio: S/ 3,899</p>
-                    <a href="#">Ver más</a>
-                </div>
-                <div class="producto">
-                    <img src="img/huawei.jpg" alt="Huawei P60 Pro">
-                    <h3>Huawei P60 Pro</h3>
-                    <p>Precio: S/ 3,899</p>
-                    <a href="#">Ver más</a>
-                </div>
-                <div class="producto">
-                    <img src="img/huawei.jpg" alt="Huawei P60 Pro">
-                    <h3>Huawei P60 Pro</h3>
-                    <p>Precio: S/ 3,899</p>
-                    <a href="#">Ver más</a>
-                </div>
-                <div class="producto">
-                    <img src="img/huawei.jpg" alt="Huawei P60 Pro">
-                    <h3>Huawei P60 Pro</h3>
-                    <p>Precio: S/ 3,899</p>
-                    <a href="#">Ver más</a>
-                </div>
+            <div class="carrito-botones">
+                <button id="carrito-vaciar">🗑 Vaciar carrito</button>
+                <button id="carrito-comprar">✅ Comprar</button>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; NovaTech / 2025 Diseño web</p>
-    </footer>
-</body>
+            <h1>Catálogo de Celulares</h1>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="#">Celulares</a>
+                <a href="#">Repuestos</a>
+                <a href="#">Soporte Técnico</a>
+                <a href="#">Contacto</a>
+                <a href="login.html">LOGIN</a>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <h2>Modelos Disponibles</h2>
+                <div class="catalogo">
+                    <!-- Producto 1 -->
+                    <div class="producto">
+                        <img src="img/iphone16.jpg" alt="iPhone 16 Pro Max">
+                        <h3>iPhone 16 Pro Max</h3>
+                        <p>Precio: S/ 5,999</p>
+                        <button class="agregar-carrito" data-nombre="iPhone 16 Pro Max" data-precio="5999">Agregar al carrito</button>
+                    </div>
+
+                    <!-- Producto 2 -->
+                    <div class="producto">
+                        <img src="img/s24.jpg" alt="Samsung Galaxy S24">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p>Precio: S/ 4,499</p>
+                        <button class="agregar-carrito" data-nombre="Samsung Galaxy S24" data-precio="4499">Agregar al carrito</button>
+    
+                    </div>
+
+                    <!-- Producto 3 -->
+                    <div class="producto">
+                        <img src="img/huawei.jpg" alt="Huawei P60 Pro">
+                        <h3>Huawei P60 Pro</h3>
+                        <p>Precio: S/ 3,899</p>
+                        <button class="agregar-carrito" data-nombre="Huawei P60 Pro" data-precio="3899">Agregar al carrito</button>
+                    </div>
+
+                    <!-- Puedes añadir más productos aquí -->
+                    <div class="producto">
+                        <img src="img/huawei.jpg" alt="Huawei P60 Pro">
+                        <h3>Huawei P60 Pro</h3>
+                        <p>Precio: S/ 3,899</p>
+                        <button class="agregar-carrito" data-nombre="iPhone 16 Pro Max" data-precio="5999">Agregar al carrito</button> 
+                    </div>
+                    <div class="producto">
+                        <img src="img/huawei.jpg" alt="Huawei P60 Pro">
+                        <h3>Huawei P60 Pro</h3>
+                        <p>Precio: S/ 3,899</p>
+                        <button class="agregar-carrito" data-nombre="iPhone 16 Pro Max" data-precio="5999">Agregar al carrito</button> 
+                    </div>
+                    <div class="producto">
+                        <img src="img/huawei.jpg" alt="Huawei P60 Pro">
+                        <h3>Huawei P60 Pro</h3>
+                        <p>Precio: S/ 3,899</p>
+                    <button class="agregar-carrito" data-nombre="iPhone 16 Pro Max" data-precio="5999">Agregar al carrito</button> 
+                    </div>
+                    <div class="producto">
+                        <img src="img/huawei.jpg" alt="Huawei P60 Pro">
+                        <h3>Huawei P60 Pro</h3>
+                        <p>Precio: S/ 3,899</p>
+                        <button class="agregar-carrito" data-nombre="iPhone 16 Pro Max" data-precio="5999">Agregar al carrito</button> 
+                    </div>
+                    <div class="producto">
+                        <img src="img/huawei.jpg" alt="Huawei P60 Pro">
+                        <h3>Huawei P60 Pro</h3>
+                        <p>Precio: S/ 3,899</p>
+                    <button class="agregar-carrito" data-nombre="iPhone 16 Pro Max" data-precio="5999">Agregar al carrito</button> 
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; NovaTech / 2025 Diseño web</p>
+        </footer>
+        <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const carritoDetalle = document.getElementById("carrito-detalle");
+        const carritoLista = document.getElementById("carrito-lista");
+        const carritoContador = document.getElementById("carrito-contador");
+        const carritoCantidad = document.getElementById("carrito-cantidad");
+        const carritoTotal = document.getElementById("carrito-total");
+
+        // 🟢 Usa la clase con descuento
+        const carrito = new CarritoConDescuento(10); // 10% de descuento
+
+        function actualizarCarrito() {
+            carritoLista.innerHTML = "";
+            let total = 0;
+
+            carrito.listaItems.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `${item.nombre} - S/ ${item.precio.toFixed(2)}`;
+                carritoLista.appendChild(li);
+                total += item.precio;
+            });
+
+            carritoContador.textContent = carrito.cantidadItems;
+            carritoCantidad.textContent = carrito.cantidadItems;
+            carritoTotal.textContent = carrito.totalPagar.toFixed(2);
+        }
+
+        document.querySelectorAll(".agregar-carrito").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const nombre = btn.dataset.nombre;
+                const precio = parseFloat(btn.dataset.precio);
+                carrito.agregar(nombre, precio);
+                actualizarCarrito();
+                carritoDetalle.classList.remove("oculto"); // Mostrar carrito al agregar
+            });
+        });
+
+        document.getElementById("carrito-vaciar").addEventListener("click", () => {
+            carrito.vaciar();
+            actualizarCarrito();
+        });
+
+        document.getElementById("carrito-comprar").addEventListener("click", () => {
+            if (carrito.cantidadItems === 0) {
+                alert("El carrito está vacío.");
+                return;
+            }
+
+            const mensaje = carrito.listaItems.map(item =>
+                `${item.nombre} - S/ ${item.precio.toFixed(2)}`
+            ).join('\n');
+
+            const total = carrito.totalPagar;
+
+            alert(`Gracias por tu compra:\n\n${mensaje}\n\nTotal a pagar (con descuento): S/ ${total.toFixed(2)}`);
+            carrito.vaciar();
+            actualizarCarrito();
+        });
+    });
+    </script>
+
+
+    </body>
+

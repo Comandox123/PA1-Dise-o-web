@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NovaTech</title>
-    <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NovaTech</title>
+  <link rel="stylesheet" href="css/carrito.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/clasesCarrito.js"></script>
+  <script src="js/carrito.js" defer></script>
 </head>
 <body>
-    <main>
-        <header>
-            <h1>NovaTech - Tecnología a tu alcance</h1>
-        </header>
+  <main>
+    <header>
+      <h1>NovaTech - Tecnología a tu alcance</h1>
+      <div id="carrito-container">
+        <button id="carrito-btn">🛒 Carrito (<span id="carrito-contador">0</span>)</button>
+
+        <!-- Modal para catálogo -->
+        <div id="modal-catalogo" class="oculto">
+          <div class="modal-contenido">
+            <span id="cerrar-modal">&times;</span>
+            <iframe src="catalogos.html" frameborder="0"></iframe>
+          </div>
+        </div>
+
+        <!-- Detalle del carrito -->
+        <div id="carrito-detalle" class="oculto">
+          <h4>🛒 Carrito de compras</h4>
+          <ul id="carrito-lista"></ul>
+          <p><strong>Total de productos:</strong> <span id="carrito-cantidad">0</span></p>
+          <p><strong>Descuento de 10% por 3 compras a mas</strong> <span id="carrito-descuento">0</span></p>
+          <p><strong>Total a pagar:</strong> S/ <span id="carrito-total">0.00</span></p>
+          <p id="carrito-descuento" class="oculto" style="color: green; font-weight: bold; margin-top: 8px;"></p>
+          <div class="carrito-botones">
+            <button id="carrito-vaciar">🗑 Vaciar carrito</button>
+            <button id="carrito-comprar">✅ Comprar</button>
+          </div>
+        </div>
+      </div>
+    </header>
 
         <nav>
             <a href="#">Inicio</a>
